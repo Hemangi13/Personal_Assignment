@@ -1,0 +1,71 @@
+Look at the console
+<style>
+  </style>
+<div style="text-align: center"> 
+<p>
+  <button class="clickBtn text-left" (click)="show=!show">Parse JSON from csv and prn file</button>
+</p>
+</div>
+<div class="dummyContent" *ngIf="show">
+  <p>
+    <li *ngFor="let user of userArray">
+      {{user | json}}
+    </li>
+  </p>
+  <p>
+    <li *ngFor="let user of userArrayForPRN">
+      {{user | json}}
+    </li>
+  </p>
+</div>
+<div style="text-align: center" >
+  <button (click)="ClickDisplay($event)">Compare original JSON Response</button>
+</div>
+<div style="text-align: center"> 
+<p>
+  <button class="clickBtn2 text-left" (click)="showHTML=!showHTML">Parse HTML from csv and prn file</button>
+</p>
+</div>
+<div class="dummyContent" *ngIf="showHTML">
+  <table border=1 cellspacing="0" align="left">
+    <thead>
+      <tr>
+        <td *ngFor="let row of row_0; let i = index">{{row_0[i]}}</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of userArray; let i = index">
+        <td>{{row.name}}</td>
+        <td>{{row.address}}</td>
+        <td>{{row.postcode}}</td>
+        <td>{{row.phonenumber}}</td>
+        <td>{{row.creditlimit}}</td>
+        <td>{{row.birthday}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table border=1 cellspacing="0" align="right">
+    <thead>
+      <tr>
+        <td *ngFor="let row of row_0; let i = index">{{row_0[i]}}</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of userArrayForPRN; let i = index">
+        <td>{{row.name}}</td>
+        <td>{{row.address}}</td>
+        <td>{{row.postcode}}</td>
+        <td>{{row.phonenumber}}</td>
+        <td>{{row.creditlimit}}</td>
+        <td>{{row.birthday}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div>
+<div><h1></h1></div>     
+<div style="text-align: center;">
+  <button (click)="fixedJSON($event,userArray)">Fix responses</button>
+</div>
+</div>
